@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kontak/saran</title>
+</head>
+<body>
+    <header>
+        <h1>Rizal Mariansyah</h1>
+        <p>Mahasiswa Teknik informatika</p>
+        <p><em>"kode terbaik yang pernah aku tulis adalah kode yang akan aku tulis besok"</em></p>
+        <hr>
+
+         <nav>
+            <a href="index.html">Home</a>
+            &nbsp;&nbsp;&nbsp;
+            <a href="kontak.html">Kontak/Saran</a>
+            <br>
+            <hr>
+        
+        </nav>
+
+    </header>
+
+    <main>
+        <h2>Formulir Kontak/Saran</h2>
+        <p>silakan isi form di bawah ini untuk mengirim pesan atau saran kepada saya.</p>
+
+        <form action="">
+            <label for="nama">Nama lengkap*:</label>
+            <br>
+            <input type="text" placeholder="masukan nama lengkap" id="nama" name="nama" size="40" maxlength="30" required>
+            <br><br>
+            
+
+            <label for="email">E-mail*:</label>
+            <br>
+            <input type="email" placeholder="contoh@email.com" id="email" name="email" size="40" required>
+            <br><br>
+
+            <label for="date">Tanggal pesan*:</label>
+            <br>
+            <input type="date" id="date" name="date" size="40" required>
+            <br><br>
+
+            <p>kategori*:</p>
+            <input type="radio"  id="kritik" name="kategori"  value="kritik">
+            <label for="kritik">kritik/saran</label>
+            
+            <input type="radio"  id="kerjasama" name="kategori" value="kerjasama">
+            <label for="kerjasama">kerja sama</label>
+            
+            <input type="radio"  id="lainnya" name="kategori" value="lainnya">
+            <label for="lainnya">lainnya</label>
+            <br><br>
+
+
+            <label for="pesan">pesan:</label>
+            <br>
+            <textarea name="pesan" id="pesan" placeholder="Tulis saran atau masukan anda..." rows="5" cols="50" minlength="5" maxlength="500" required></textarea>
+            <br><br>
+            
+           <button type="submit">kirim formulir</button>
+
+
+        </form>
+
+
+
+    </main>
+    <br>
+    <hr>
+    <br>
+
+    <footer>
+        <p>&copy;2026 Rizal mariansyah</p>
+    </footer>
+
+</body>
+</html>
