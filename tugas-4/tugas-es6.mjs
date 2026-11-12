@@ -1,19 +1,19 @@
 const transaksiBelanja = [{ 
-    id: 1, barang: "Laptop", harga: 7000000, qty: 1, kategori: "Elektronik" },
-    { id: 2, barang: "Mouse", harga: 150000, qty: 2, kategori: "Elektronik" },
-    { id: 3, barang: "Keyboard", harga: 250000, qty: 1, kategori: "Elektronik" },
-    { id: 4, barang: "Buku", harga: 20000, qty: 3, kategori: "Alat Tulis" },
-    { id: 5, barang: "Pensil", harga: 5000, qty: 5, kategori: "Alat Tulis" },
-    { id: 6, barang: "Tas", harga: 150000, qty: 1, kategori: "Fashion" }
+    id: 1, barang: "kulkas", harga: 2700000, qty: 1, kategori: "Elektronik" },
+    { id: 2, barang: "Ac", harga: 3000000, qty: 2, kategori: "Elektronik" },
+    { id: 3, barang: "televisi", harga: 2500000, qty: 3, kategori: "Elektronik" },
+    { id: 4, barang: "rice cooker", harga: 200000, qty: 2, kategori: "Elektronik" },
+    { id: 5, barang: "kipas angin", harga: 500000, qty: 2, kategori: "Elektronik" },
+    { id: 6, barang: "mesin cuci", harga: 4500000, qty: 1, kategori: "Elektronik" }
 ];
 
 
 // 1. filter = menyaring barang dengan harga dibawah 200.000
 
 
-console.log("\n========== filter(< 200000) ==========\n")
+console.log("\n========== filter(< 3000000) ==========\n")
 const getBarang = () =>
-    transaksiBelanja.filter((item) => item.harga < 200000);
+    transaksiBelanja.filter((item) => item.harga < 3000000);
 
 console.table(getBarang());
 
