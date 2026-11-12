@@ -11,7 +11,7 @@ const transaksiBelanja = [{
 // 1. filter = menyaring barang dengan harga dibawah 200.000
 
 
-console.log("========== filter(< 200.000) ==========")
+console.log("\n========== filter(< 200000) ==========\n")
 const getBarang = () =>
     transaksiBelanja.filter((item) => item.harga < 200000);
 
@@ -19,7 +19,7 @@ console.table(getBarang());
 
 //  2. map = mengehitung subtotal barang
 
-console.log("========== map(subtotal tiap barang) ==========")
+console.log("\n========== map(subtotal tiap barang) ==========\n")
 
 const getSubtotalBarang = () =>transaksiBelanja.map(({id,barang,harga,qty,kategori})=>
     ({
@@ -31,6 +31,13 @@ const getSubtotalBarang = () =>transaksiBelanja.map(({id,barang,harga,qty,katego
     subtotal: harga*qty}));
 
 console.table(getSubtotalBarang());
+
+console.log("\n========== reduce (menghitung total) ==========\n")
+
+const getTotalkeseluruhan = () =>
+    getSubtotalBarang().reduce((total, {subtotal}) => {return total + subtotal},0);
+
+console.log("total keseluruhan: Rp." + getTotalkeseluruhan())
 
 
 
