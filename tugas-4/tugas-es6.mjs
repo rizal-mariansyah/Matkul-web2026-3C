@@ -16,12 +16,7 @@ const getBarang = () =>
 console.log((getBarang()));
 
 //  2. map = mengehitung subtotal barang
-const getSubtotalBarang = () =>transaksiBelanja.map(({
-    id,
-    barang,
-    harga,
-    qty,
-    kategori})=>
+const getSubtotalBarang = () =>transaksiBelanja.map(({id,barang,harga,qty,kategori})=>
     ({
     id,
     barang,
