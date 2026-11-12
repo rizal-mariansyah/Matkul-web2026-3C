@@ -8,10 +8,10 @@ const transaksiBelanja = [{
 ];
 
 
-// 1. filter = menyaring barang dengan harga dibawag 200.000
+// 1. filter = menyaring barang dengan harga dibawah 200.000
 
 
-console.log("========== filter() ==========")
+console.log("========== filter(< 200.000) ==========")
 const getBarang = () =>
     transaksiBelanja.filter((item) => item.harga < 200000);
 
@@ -19,7 +19,7 @@ console.table(getBarang());
 
 //  2. map = mengehitung subtotal barang
 
-console.log("========== map() ==========")
+console.log("========== map(subtotal tiap barang) ==========")
 
 const getSubtotalBarang = () =>transaksiBelanja.map(({id,barang,harga,qty,kategori})=>
     ({
