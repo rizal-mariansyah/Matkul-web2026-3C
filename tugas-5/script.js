@@ -1,9 +1,12 @@
+// ambil elemen dari html
 const form = document.getElementById("formCari");
-const Input = document.getElementById("username");
+const input = document.getElementById("username");
 const hasil = document.getElementById("hasil");
 
+
+// saat form di submit
 form.addEventListener("submit", function (event) {
     event.preventDefault();
-    const username = Input.value.trim();
+    const username = input.value.trim();
     console.log(username);
 });
