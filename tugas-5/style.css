@@ -1,7 +1,9 @@
+/* untuk semua elemen. */
 *{
     box-sizing: border-box;
 }
 
+/* style seluruh halaman */
 body{
     background-color: rgb(237, 244, 241);
     margin: 0;
@@ -9,8 +11,41 @@ body{
     padding: 2rem 1rem;
 }
 
+/* pembungkus main  */
 .container{
     max-width: 500px;
     margin: 0 auto;
     text-align: center;
+}
+/* bagian form */
+#formCari{
+    display: flex;
+    gap: 8px;
+    margin-bottom: 1rem;
+    
+}
+/* kolom ketik */
+#username{
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+  
+    
+}
+
+/* bagian tombol */
+button{
+    padding: 0.5rem 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+/* klik button berubah warna */
+button:hover{
+    background-color: #267037;
 }
