@@ -11,6 +11,12 @@ body{
     padding: 2rem 1rem;
 }
 
+h1 img{
+   width: 3rem;
+   height: 3rem;
+   
+}
+
 /* pembungkus main  */
 .container{
     max-width: 500px;
@@ -65,17 +71,19 @@ button:hover{
 }
 
 .error{
-    color: #d32f2f solid;
+    color: #d32f2f;
 
 }
 #hasil img{
     width: 200px;
     height: 200px;
+    max-width: 100%;
     border-radius: 50%;
     margin-bottom: 1rem;
 }
 
 #hasil a{
-    color: blue;
+    color: #0969da;
     text-decoration: none;
 }
+
