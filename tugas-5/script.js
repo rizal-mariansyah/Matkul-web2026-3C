@@ -32,7 +32,7 @@ async function cariUser(username) {
         tampilkanProfil(data);
         } catch (error) {
         console.error("Error", error);
-        hasil.innerHTML = '<p class="error">Koneksi erorr. Anda gagal memuat data.</p>';
+        hasil.innerHTML = '<p class="error">Koneksi error. Anda gagal memuat data.</p>';
     }
    
 }
