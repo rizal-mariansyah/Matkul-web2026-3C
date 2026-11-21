@@ -8,7 +8,6 @@ const hasil = document.getElementById("hasil");
 form.addEventListener("submit", function (event) {
     event.preventDefault();
     const username = input.value.trim();
-    console.log(username);
     cariUser(username);
 });
 
@@ -33,7 +32,7 @@ async function cariUser(username) {
         tampilkanProfil(data);
         } catch (error) {
         console.error("Error", error);
-        hasil.innerHTML = '<p class="error">Koneksi eror. Anda gagal memuat data.</p>';
+        hasil.innerHTML = '<p class="error">Koneksi erorr. Anda gagal memuat data.</p>';
     }
    
 }

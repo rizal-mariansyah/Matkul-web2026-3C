@@ -49,3 +49,33 @@ button{
 button:hover{
     background-color: #267037;
 }
+
+/* tampilan kartu profil ,memuat dan loading */
+.profil{
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-family: inherit;
+}
+
+.loading{
+    color: #666;
+}
+
+.error{
+    color: #d32f2f solid;
+
+}
+#hasil img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+#hasil a{
+    color: blue;
+    text-decoration: none;
+}
