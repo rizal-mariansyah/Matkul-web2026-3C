@@ -1,7 +1,7 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import bukuCatattan from './components/bukuCatattan.vue'
 </script>
 
 <template>
-  <HelloWorld />
+  <bukuCatattan />
 </template>
