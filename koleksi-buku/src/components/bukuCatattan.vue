@@ -11,6 +11,11 @@ const selectedKategori = ref("");
 // variabel selesai baca
 const sudahDIbaca = ref(false);
 
+// Input buku baru yang ada
+const judulBaru = ref("");
+const kategoriBaru = ref("");
+
+
 // daftar buku
 const daftarBuku = ref([
   {
@@ -53,11 +58,41 @@ const bukuTerfilter = computed(() => {
     });
   });
   
-// Mengubah status baca buku
-const ubahStatus = (id) => {
-const buku = daftarBuku.value.find((buku) => buku.id === id);
+  // Menghitung jumlah buku yang sudah dibaca
+  
+  // Mengubah status baca buku
+  const ubahStatus = (id) => {
+    const buku = daftarBuku.value.find((buku) => buku.id === id);
+    if(buku){
+      buku.dibaca = !buku.dibaca;
+    }
+  };
+const jumlahSelesai = computed(() => {
+  return daftarBuku.value.filter((buku) => buku.dibaca === true).length;
+});
+  
+  //  Menambahkan buku baru
+const tambahBuku = () => {
+  if (
+    judulBaru.value.trim() === "" ||
+    kategoriBaru.value.trim() === ""
+  ) {
+    alert("Judul dan kategori harus diisi!");
+    return;
+  }
 
-buku.dibaca = !buku.dibaca;
+  daftarBuku.value.push({
+    id: Date.now(),
+    judul: judulBaru.value.trim(),
+    kategori: kategoriBaru.value.trim(),
+    dibaca: false,
+  });
+
+  // Mengosongkan form setelah berhasil
+  judulBaru.value = "";
+  kategoriBaru.value = "";
+  
+
 };
 
     
@@ -66,50 +101,85 @@ buku.dibaca = !buku.dibaca;
 <template>
   <div class="container">
 
-     <!-- Judul aplikasi -->
+      <!-- Judul aplikasi  -->
 
     <h1>Koleksi Buku Pribadi</h1>
 
-    <input type="text" placeholder="Cari judul buku..." v-model="searchQuery" />
+
+    <!-- Menghitung buku yang sudah selesai dibaca -->
+    <p>Jumlah buku selesai dibaca: {{ jumlahSelesai }}</p>
 
 
-      <!-- Filter kategori dan status buku -->
+    <!-- FORM TAMBAH BUKU -->
+    <div class="form-buku">
+      <h2>Tambah Buku</h2>
+      
 
-    <div class="filter">
-      <select v-model="selectedKategori">
-        <option value="">Kategori</option>
-        <option value="komik">komik</option>
-        <option value="Novel">Novel</option>
-        <option value="Biografi">Biografi</option>
-      </select>
+      <input
+        type="text"
+        placeholder="Masukkan judul buku..."
+        v-model="judulBaru"
+      />
+      
+      <input
+      type="text"
+      placeholder="Masukkan kategori buku..."
+      v-model="kategoriBaru"
+      />
+      
 
-      <input type="checkbox" v-model="sudahDIbaca" />
-      <label>selesai dibaca</label>
+    <!-- Tombol menambahkan buku -->
+      <button @click="tambahBuku">
+        Tambah Buku
+      </button>
+    </div>
+    <br>  
+
+      <!-- Filter,cari, kategori dan status buku -->
+
+      <div class="filter">
+
+        <input
+          type="text"
+          placeholder="Cari judul buku..."
+          v-model="searchQuery"
+        />
+        <select v-model="selectedKategori">
+          <option value="">Kategori</option>
+          <option value="komik">komik</option>
+          <option value="Novel">Novel</option>
+          <option value="Biografi">Biografi</option>
+        </select>
+
+      <div>
+        <input type="checkbox" v-model="sudahDIbaca" />
+        <label>selesai dibaca</label>
+      </div>
     </div>
 
      <!-- Menampilkan daftar buku hasil filter -->
-  <div class="daftar-buku">
+    <div class="daftar-buku">
 
-  <h2>Daftar Buku:</h2>
+      <h2>Daftar Buku:</h2>
 
-  <div v-for="buku in bukuTerfilter" :key="buku.id">
-    <h3>{{ buku.judul }}</h3>
-    <p>Kategori: {{ buku.kategori }}</p>
+      <div v-for="buku in bukuTerfilter" :key="buku.id">
+        <h3>{{ buku.judul }}</h3>
+        <p>Kategori: {{ buku.kategori }}</p>
 
-     <!-- Menampilkan status baca -->
-    <p>
-      Status:
-      {{ buku.dibaca ? "Sudah dibaca" : "Belum dibaca" }}
-    </p>
+        <!-- Menampilkan status baca -->
+        <p>
+          Status:
+          {{ buku.dibaca ? "Sudah dibaca" : "Belum dibaca" }}
+        </p>
 
-    <!-- Tombol untuk mengubah status baca -->
-    <button @click="ubahStatus(buku.id)">
-      {{ buku.dibaca ? "Tandai belum dibaca" : "Tandai sudah dibaca" }}
-    </button>
-  
-  </div>
+        <!-- Tombol untuk mengubah status baca -->
+        <button @click="ubahStatus(buku.id)">
+          {{ buku.dibaca ? "Tandai belum dibaca" : "Tandai sudah dibaca" }}
+        </button>
+      
+      </div>
 
-</div>
+    </div>
   </div>
 </template>
 
