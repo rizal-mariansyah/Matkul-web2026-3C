@@ -38,6 +38,12 @@ const daftarBuku = ref([
   },
 ]);
 
+const daftarKategori = computed(() => {
+  return [...new Set(
+    daftarBuku.value.map((buku) => buku.kategori)
+  )];
+});
+
 // filter pencarian,kategori dan status
 
 const bukuTerfilter = computed(() => {
@@ -145,10 +151,15 @@ const tambahBuku = () => {
           v-model="searchQuery"
         />
         <select v-model="selectedKategori">
-          <option value="">Kategori</option>
-          <option value="komik">komik</option>
-          <option value="Novel">Novel</option>
-          <option value="Biografi">Biografi</option>
+          <option value="">Semua Kategori</option>
+
+          <option
+            v-for="kategori in daftarKategori"
+            :key="kategori"
+            :value="kategori"
+          >
+            {{ kategori }}
+          </option>
         </select>
 
       <div>
