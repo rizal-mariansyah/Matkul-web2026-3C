@@ -119,7 +119,13 @@ input[type="text"] {
   box-sizing: border-box;
   margin-bottom: 15px;
 }
-
+/*Mengatur posisi filter */
+.filter {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  align-items: center;
+}
 
 
 /*Mengatur daftar buku dan scroll */
