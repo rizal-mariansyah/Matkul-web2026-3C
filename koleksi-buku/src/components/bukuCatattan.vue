@@ -17,19 +17,19 @@ const daftarBuku = ref([
     id: 1,
     judul: "Laskar Pelangi",
     kategori: "Novel",
-    dibaca: true,
+    dibaca: false,
   },
   {
     id: 2,
     judul: "Naruto",
     kategori: "komik",
-    dibaca: true,
+    dibaca: false,
   },
   {
     id: 3,
     judul: "Soekarno",
     kategori: "Biografi",
-    dibaca: true,
+    dibaca: false,
   },
 ]);
 
@@ -40,18 +40,25 @@ const bukuTerfilter = computed(() => {
     const cocokJudul = buku.judul
       .toLowerCase()
       .includes(searchQuery.value.toLowerCase());
-
-    const cocokKategori =
+      
+      
+      const cocokKategori =
       selectedKategori.value === "" ||
       buku.kategori.toLowerCase() === selectedKategori.value.toLowerCase();
-
-    const cocokStatus =
+      
+      const cocokStatus =
       !sudahDIbaca.value || buku.dibaca === true;
-
-     return cocokJudul && cocokKategori && cocokStatus;
+      
+      return cocokJudul && cocokKategori && cocokStatus;
+    });
   });
-});
+  
+// Mengubah status baca buku
+const ubahStatus = (id) => {
+const buku = daftarBuku.value.find((buku) => buku.id === id);
 
+buku.dibaca = !buku.dibaca;
+};
 
     
 </script>
@@ -88,6 +95,18 @@ const bukuTerfilter = computed(() => {
   <div v-for="buku in bukuTerfilter" :key="buku.id">
     <h3>{{ buku.judul }}</h3>
     <p>Kategori: {{ buku.kategori }}</p>
+
+     <!-- Menampilkan status baca -->
+    <p>
+      Status:
+      {{ buku.dibaca ? "Sudah dibaca" : "Belum dibaca" }}
+    </p>
+
+    <!-- Tombol untuk mengubah status baca -->
+    <button @click="ubahStatus(buku.id)">
+      {{ buku.dibaca ? "Tandai belum dibaca" : "Tandai sudah dibaca" }}
+    </button>
+  
   </div>
 
 </div>
